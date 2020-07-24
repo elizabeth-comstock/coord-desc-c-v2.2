@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1595136481 source:c:\users\alice\documents\2019 - oxford\europ\coordinatedescentcv2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<math.h>
+	"cdvars.h"
+
+1595136586 c:\users\alice\documents\2019 - oxford\europ\coordinatedescentcv2\cdvars.h
+
+1595136481 source:c:\users\alice\documents\2019 - oxford\europ\coord-desc-c-v2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<math.h>
+	"cdvars.h"
+
+1595136586 c:\users\alice\documents\2019 - oxford\europ\coord-desc-c-v2\cdvars.h
+
+1595299712 source:c:\users\alice\documents\2019 - oxford\europ\coord-desc-c-v2.1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<math.h>
+	"cdvars.h"
+
+1595136586 c:\users\alice\documents\2019 - oxford\europ\coord-desc-c-v2.1\cdvars.h
+
+1595571793 source:c:\users\alice\documents\2019 - oxford\europ\coord-desc-c-v2.2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<math.h>
+	"cdvars.h"
+
+1595136586 c:\users\alice\documents\2019 - oxford\europ\coord-desc-c-v2.2\cdvars.h
+
