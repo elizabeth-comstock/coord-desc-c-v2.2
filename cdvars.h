@@ -6,6 +6,7 @@ double cinit[2] = {-2,0};
 double cn[2] = {-2,0};
 double ck[2] = {-2,0};
 double ctrial[2] = {-2,0};
+int dim = 2;
 
 // define orthogonal vectors
 double vx[2] = {1,0};

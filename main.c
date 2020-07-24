@@ -4,18 +4,12 @@
 #include <math.h>
 #include "cdvars.h"
 
+// calculate banana function for given inputs
 double recalcfuncval(double *v)
 {
     return 100*pow((v[1]-pow(v[0],2)),2) + pow(1-v[0],2);
 }
 
-// calculate banana function for given inputs
-/*
-double recalcfuncval(double x, double y)
-{
-    return 100*pow((y-pow(x,2)),2) + pow(1-x,2);
-}
-*/
 int main()
 {
     // calculate function value at starting point
@@ -48,7 +42,9 @@ int main()
             dirflag = 0;
         }
 
-        /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        /* %for (int j=0; j<=1; ++j){
+                ctrial[j] = cn[j] + e*v[j];
+            }%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
            3. For each vector, determine search direction
            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
         // DEBUG
@@ -56,7 +52,6 @@ int main()
         printf("v  = %f, %f\t\n\n",v[0],v[1]);
         printf("***DETERMINE SEARCH DIRECTION, ITERATION %i***\n",h);
         printf("cn = %f, %f \tFn = %f \n",cn[0],cn[1],fn);
-        // printf("v  = %f, %f \n",v[0],v[1]);
         // values declared here because they reset with each iteration
         double d = 0.001;   // move a thousandth of a unit vector to test
         bool dirfound = 0;  // direction finding success flag
@@ -65,7 +60,7 @@ int main()
         // actually determine search direction
         while(dirfound == 0 && sdn <= 500)
         {
-            for (int i=0; i<=1; ++i){
+            for (int i=0; i<dim; ++i){
                 ctrial[i] = cn[i] + d*v[i];
             }
             // then calculate new value yielded by trial
@@ -97,7 +92,7 @@ int main()
         while((succount < 1 || failcount < 5) && lsn <= 500)
         {
             // iteratively solve coordinate values for each x-y dimension
-            for (int j=0; j<=1; ++j){
+            for (int j=0; j<dim; ++j){
                 ctrial[j] = cn[j] + e*v[j];
             }
             // then calculate new value yielded by trial
@@ -107,7 +102,7 @@ int main()
 
             if (ft <= fk) {
                 fk = ft;                // update function value to lowest found
-                for (int k=0; k<=1; ++k){
+                for (int k=0; k<dim; ++k){
                     ck[k] = ctrial[k];  // write new coordinates to placeholder
                 }
                 e = e*a;
@@ -126,7 +121,7 @@ int main()
         lsn = 1;
         // write new coordinates and function value
         fn = fk;
-        for (int l=0; l<=1; ++l){
+        for (int l=0; l<dim; ++l){
             cn[l] = ck[l];
         }
         // DEBUG
@@ -141,19 +136,23 @@ int main()
            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
         if (dirflag == 0)
         {
-            vx[0] = cn[0] - cinit[0];
-            vx[1] = cn[1] - cinit[1];
+            // raw distance between current point and previous, before cycling orthogonal vectors
+            for (int m=0; m<dim; ++m){
+                vx[m] = cn[m] - cinit[m];
+            }
             double vlength = sqrt(pow(vx[0],2) + pow(vx[1],2));
-            vx[0] /= vlength;
-            vx[1] /= vlength;
+            // normalise vectors
+            for (int n=0; n<dim; ++n){
+                vx[n] /= vlength;
+            }
             // find the other orthogonal vector, rotates different ways:
             vy[0] = vx[1];
             vy[1] = -vx[0];
             // reset flags
             dirflag = 0;
             // write current coordinates to cinit for next iteration
-            for (int m=0; m<=1; ++m){
-                cinit[m] = cn[m];
+            for (int p=0; p<dim; ++p){
+                cinit[p] = cn[p];
             }
         }
     }
