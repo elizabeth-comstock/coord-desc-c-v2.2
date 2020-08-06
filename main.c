@@ -29,7 +29,7 @@ int main()
           recalculate orthogonal vectors.
        First iteration starts at Step 2.
      */
-    for (int h=1; h<=5; ++h)
+    for (int h=1; h<=30; ++h)
     {
         /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
            2. Cycle through already chosen orthogonal vectors

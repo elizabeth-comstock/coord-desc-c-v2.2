@@ -2,10 +2,10 @@
 #define CDVARS_H_INCLUDED
 
 // begin with an arbitrary point, hold first point coordinates for comparison
-double cinit[2] = {-2,0};
-double cn[2] = {-2,0};
-double ck[2] = {-2,0};
-double ctrial[2] = {-2,0};
+double cinit[] = {-1.2,1};
+double cn[] = {-1.2,1};
+double ck[] = {-1.2,1};
+double ctrial[] = {-1.2,1};
 int dim = 2;
 
 // define orthogonal vectors
